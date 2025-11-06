@@ -1,10 +1,12 @@
 <?php
 
+require_once ('FsmInterface.php');
+
 /*
  * Finite automation machine, 5-tuple.
  *
  */
-class Fsm
+class Fsm implements FsmInterface
 {
     protected $debug = false;
     protected $allStates, $allowableInputs, $initialState, $acceptableFinalStates, $transitionFunc;
@@ -47,7 +49,7 @@ class Fsm
      * @return array
      * @throws Exception
      */
-    public function run($inputString)
+    public function run($inputString): array
     {
         try {
             if (empty($inputString)) {

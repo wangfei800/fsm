@@ -1,5 +1,7 @@
 <?php
 
+require_once('Fsm.php');
+
 /*
  * Finite automation machine generator
  *
