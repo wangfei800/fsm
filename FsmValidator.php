@@ -21,6 +21,8 @@ class FsmValidator implements FsmValidatorInterface
     public function validate(FsmParams $fsmParams): bool
     {
         try {
+            $errorMessage = [];
+
             // limited validation here
             if (!is_array($fsmParams->getAllStates())) {
                 $this->errorMessage[] = 'All states must be array';
@@ -30,7 +32,11 @@ class FsmValidator implements FsmValidatorInterface
                 throw new Exception('transitionFunc should be callable');
             }
 
-            return true;
+            if (count($this->errorMessage)) {
+                return false;
+            } else {
+                return true;
+            }
         } catch (Exception $ex) {
             $this->errorMessage[] = $ex->getMessage();
             return false;
