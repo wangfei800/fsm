@@ -29,11 +29,11 @@ class Fsm implements FsmInterface
      */
     public function __construct(FsmParams $fsmParams)
     {
-        $this->allStates = $fsmParams->getAllStates();
-        $this->allowableInputs = $fsmParams->getAllowableInputs();
-        $this->initialState = $fsmParams->getInitialState();
-        $this->acceptableFinalStates = $fsmParams->getAcceptableFinalStates();
-        $this->transitionFunc   = $fsmParams->getTransitionFunc();
+        $this->allStates                = $fsmParams->getAllStates();
+        $this->allowableInputs          = $fsmParams->getAllowableInputs();
+        $this->initialState             = $fsmParams->getInitialState();
+        $this->acceptableFinalStates    = $fsmParams->getAcceptableFinalStates();
+        $this->transitionFunc           = $fsmParams->getTransitionFunc();
     }
 
     /**

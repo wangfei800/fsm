@@ -2,7 +2,6 @@
 
 /**
  * Mod Three FSM testing
- * To run this, php testFa.php
  */
 require_once('FsmGenerator.php');
 
