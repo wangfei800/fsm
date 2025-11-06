@@ -57,15 +57,25 @@ function testModThreeFsm() {
     $finalStates    = ['S0', 'S1', 'S2'];
     $initialState   = 'S0';
     $fsmGenerator   = new FsmGenerator();
+    $fsmParams      = new FsmParams($States, $inputSet, $initialState, $finalStates, 'transitionFunc');
+    $fsm            = $fsmGenerator->generateFsm($fsmParams);
 
-    $fa = $fsmGenerator->generateFsm($States, $inputSet, $initialState, $finalStates, 'transitionFunc');
-    $fa->setDebug(true);
-
-    $result = $fa->run('1010');
-
-    return $result;
+    if ($fsm instanceof FsmInterface) {
+        $fsm->setDebug(true);
+        $result = $fsm->run('1010');
+        return $result;
+    } else {
+        return $fsmGenerator->getError();
+    }
 }
 
 $result = testModThreeFsm();
-//print_r($result);
+if (is_string($result)) {
+    // Error happens
+    echo 'Error: ' . $result;
+} else {
+    echo 'Final state: ' . $result['state'];
+}
+
 echo PHP_EOL;
+

@@ -27,19 +27,13 @@ class Fsm implements FsmInterface
      * @param array $acceptableFinalStates
      * @param callback $transitionFunc
      */
-    public function __construct($allStates, $allowableInputs, $initialState,
-                                $acceptableFinalStates, $transitionFunc)
+    public function __construct(FsmParams $fsmParams)
     {
-        $this->allStates = $allStates;
-        $this->allowableInputs = $allowableInputs;
-        $this->initialState = $initialState;
-        $this->acceptableFinalStates = $acceptableFinalStates;
-
-        if (!is_callable($transitionFunc)) {
-            throw new Exception('transitionFunc should be callable');
-        } else {
-            $this->transitionFunc = $transitionFunc;
-        }
+        $this->allStates = $fsmParams->getAllStates();
+        $this->allowableInputs = $fsmParams->getAllowableInputs();
+        $this->initialState = $fsmParams->getInitialState();
+        $this->acceptableFinalStates = $fsmParams->getAcceptableFinalStates();
+        $this->transitionFunc   = $fsmParams->getTransitionFunc();
     }
 
     /**

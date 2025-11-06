@@ -1,6 +1,8 @@
 <?php
 
 require_once('Fsm.php');
+require_once('FsmParams.php');
+require_once('FsmValidator.php');
 
 /*
  * Finite automation machine generator
@@ -8,9 +10,17 @@ require_once('Fsm.php');
  */
 class FsmGenerator
 {
+    protected $validator = null;
+    protected $errorMessage = '';
+
     public function __construct()
     {
-        // placeholder
+        $this->validator = new FsmValidator();
+    }
+
+    public function getError()
+    {
+        return $this->errorMessage;
     }
 
     /**
@@ -20,20 +30,24 @@ class FsmGenerator
      * @return array
      * @throws Exception
      */
-    public function generateFsm($allStates, $allowableInputs, $initialState,
-                                $finalStates, $transitionFunc)
+    public function generateFsm(FsmParams $fsmParams, $validator = null)
     {
         try {
-            $fsm = new Fsm($allStates, $allowableInputs, $initialState,
-                $finalStates, $transitionFunc);
+            if (!empty($validator)) {
+                $this->validator = $validator;
+            }
+
+            if (!$this->validator->validate($fsmParams)) {
+                throw new \Exception('Error in parameters: ' . $this->validator->getError());
+            }
+
+            $fsm = new Fsm($fsmParams);
 
             return $fsm;
 
         } catch (Exception $ex) {
-            return [
-                'status' => 'error',
-                'message' => __FUNCTION__ . ' ' . $ex->getMessage()
-            ];
+            $this->errorMessage = $ex->getMessage();
+            return false;
         }
     }
 }

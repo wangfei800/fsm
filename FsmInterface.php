@@ -14,16 +14,6 @@ interface FsmInterface
     public function setDebug(bool $debug);
 
     /**
-     * Five parameters to build FSM
-     * @param array $allStates
-     * @param array $allowableInputs
-     * @param array $initialState
-     * @param array $acceptableFinalStates
-     * @param callback $transitionFunc
-     */
-    public function __construct($allStates, $allowableInputs, $initialState, $acceptableFinalStates, $transitionFunc);
-
-    /**
      * Run the finite automation machine with given input.
      *
      * @param string $inputString
