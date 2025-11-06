@@ -10,9 +10,9 @@ PHP Version 8.x
 **F ⊆ Q** is the set of accepting/final states; and\
 **δ:Q×Σ→Q** is the transition function.
 
-##To run unit tests:
+## To run unit tests:
 Run command: composer install\
 then: ./vendor/bin/phpunit ./UnitTestFsm.php
 
-##To run the test:
+## To run the test:
 php TestFsm.php
