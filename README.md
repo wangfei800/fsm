@@ -2,7 +2,7 @@
 
 PHP Version 8.x
 
-##Finite Automation
+## Finite Automation
 **A** finite automaton (FA) is a 5-tuple (Q,Σ,q0,F,δ) where,\
 **Q** is a finite set of states;\
 **Σ** is a finite input alphabet;\
