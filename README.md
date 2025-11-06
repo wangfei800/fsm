@@ -12,3 +12,7 @@ F ⊆ Q is the set of accepting/final states; and
 
 To run the test: 
 php TestFsm.php
+
+To run unit tests:
+run command: composer install
+then: ./vendor/bin/phpunit ./UnitTestFsm.php
