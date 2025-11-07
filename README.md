@@ -12,7 +12,7 @@ PHP Version 8.x
 
 ## To run unit tests:
 ### Install phpunit library
-Run command: composer install\
+Run command: composer install
 ### Run tests
 Run command: ./vendor/bin/phpunit ./UnitTestFsm.php
 ### To display detailed test result
