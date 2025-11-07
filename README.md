@@ -11,8 +11,12 @@ PHP Version 8.x
 **δ:Q×Σ→Q** is the transition function.
 
 ## To run unit tests:
+### Install phpunit library
 Run command: composer install\
-then: ./vendor/bin/phpunit ./UnitTestFsm.php
+### Run tests
+Run command: ./vendor/bin/phpunit ./UnitTestFsm.php
+### To display detailed test result
+Run command: ./vendor/bin/phpunit --debug ./UnitTestFsm.php
 
 ## To run the test:
-php TestFsm.php
+Run command: php TestFsm.php
