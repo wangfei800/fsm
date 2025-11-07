@@ -1,6 +1,8 @@
 # Finate State Machine
 
-PHP Version 8.x
+PHP Version 8.x\
+You need to install composer if you want to run Unit Test.\
+https://getcomposer.org/doc/00-intro.md
 
 ## Finite Automation
 **A** finite automaton (FA) is a 5-tuple (Q,Σ,q0,F,δ) where,\
